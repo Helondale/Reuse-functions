@@ -1,4 +1,3 @@
-//YOUR CODE COMES HERE
 let favMovies = [
     {
         title: "Mary Poppins",
@@ -9,9 +8,6 @@ let favMovies = [
         writer: "P.L. Travers",
         stars: "Julie Andrews, Dick Van Dyke",
         genre: "musical"
-
-
-
     },
     {
         title: "Scream",
@@ -138,28 +134,6 @@ let bestSellingAlbums = [
     }
 ];
 
-
-function averageAge(list) {
-    let age = 0;
-    let averageAge = 0;
-    for (let object of list) {
-        age += 2022 - object.year
-
-    }
-    averageAge = age / list.length;
-    return averageAge
-
-}
-//Ket megoldas
-let result = averageAge(favMovies);
-console.log(result);
-console.log(averageAge(favoriteBooks));
-console.log(averageAge(bestSellingAlbums));
-let result2 = averageAge(favoriteBooks);
-console.log(result2);
-let result3 = averageAge(bestSellingAlbums);
-console.log(result3);
-
 function average(list, key) {
     let count = 0;
     let average = 0;
@@ -169,76 +143,32 @@ function average(list, key) {
     }
     average = count / list.length;
     return average
-}
-
+};
 
 console.log(average(favMovies, "rating"));
 console.log(average(favoriteBooks, "year"));
 
 function latestOrOldest(list, youngest) {
-    let kacsa = list[0].year
-    let cica = list[0].title
+    let containList = list[0].year
+    let containTitle = list[0].title
     for (let element of list) {
         if (youngest === true) {
 
-            if (element.year > kacsa) {
-                kacsa = element.year
-                cica = element.title
+            if (element.year > containList) {
+                containList = element.year
+                containTitle = element.title
 
             }
         } else {
-            if(element.year < kacsa) {
-                kacsa = element.year
-                cica = element.title
+            if(element.year < containList) {
+                containList = element.year
+                containTitle = element.title
             }
         }
     }
-
-    return cica
-
-}
-
+    return containTitle
+};
 
 console.log(latestOrOldest(favMovies, true));
 console.log(latestOrOldest(favoriteBooks, false));
 console.log(latestOrOldest(bestSellingAlbums, true));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// DON'T MODIFY THE CODE BELOW THIS LINE
-
-let toExport;
-
-try {
-    toExport = [
-        { name: "favoriteBooks", content: favoriteBooks, type: "array" },
-        { name: "favMovies", content: favMovies, type: "array" },
-        { name: "bestSellingAlbums", content: bestSellingAlbums, type: "array" },
-        { name: "averageAge", content: averageAge, type: "function" },
-        { name: "average", content: average, type: "function" },
-        { name: "latestOrOldest", content: latestOrOldest, type: "function" },
-
-    ]
-} catch (error) {
-    toExport = { error: error.message }
-}
-
-export { toExport };
